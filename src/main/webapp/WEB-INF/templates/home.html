@@ -22,7 +22,7 @@
 				
 				<tr>
 					<td>Bookmark</td>
-					<td>Delete BM?</td>
+					<td>Delete?</td>
 				</tr>
 				
 				<tr th:each="url : ${urls}">
@@ -42,6 +42,16 @@
 	</form>
 	
 	<!-- give menu of options -->
+	<footer>
+		
+		<a href="/" th:href="@{/}">Home</a>
+		<a href="/add_bm" th:href="@{/add_bm}">Add BM</a>
+		<a href="/delete_bms" th:href="@{/delete_bms}">Delete BM</a>
+		<a href="/change_password" th:href="@{/change_password}">Change Password</a>
+		<a href="/recomend" th:href="@{/recomend}">Recommend URLs to me</a>
+		<a href="/logout" th:href="@{/logout}">Logout</a>
+		
+	</footer>
 	
 </body>
 </html>
