@@ -13,7 +13,7 @@ import org.thymeleaf.ITemplateEngine;
 import org.thymeleaf.context.WebContext;
 
 import com.tenneshop.bookmark.web.util.HttpServletRequestUtil;
-import com.tenneshop.bookmark.web.util.MysqlDriverUtil;
+import com.tenneshop.bookmark.web.util.MysqlJDBCUtil;
 
 public class RegisterController implements IController {
 	
@@ -113,7 +113,7 @@ public class RegisterController implements IController {
 	
 	private boolean registerUser(String username, String password, String email) {
 		
-		if (MysqlDriverUtil.getInstance().registerUser(username, password, email)) {
+		if (MysqlJDBCUtil.getInstance().registerUser(username, password, email)) {
 			return true;	
 		}
 		else {
