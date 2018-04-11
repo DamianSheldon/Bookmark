@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="base :: common_header(~{::title},~{})">
+
+<title>Logout</title>
+</head>
+
+<body>
+	
+	<header th:replace="~{base :: header}"></header>
+	
+	<h1 th:if="${oldUser} ne null and ${oldUser.length} &gt; 1">Logged out.</h1>
+	
+	<p th:if="${oldUser} eq null">You were not logged in, and so have not been logged out</p>
+	
+	<a href="/" th:href="@{/}">Login</a>
+	
+</body>
+</html>

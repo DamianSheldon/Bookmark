@@ -14,6 +14,7 @@ import org.thymeleaf.templateresolver.ServletContextTemplateResolver;
 import com.tenneshop.bookmark.web.controller.HomeController;
 import com.tenneshop.bookmark.web.controller.IController;
 import com.tenneshop.bookmark.web.controller.LoginController;
+import com.tenneshop.bookmark.web.controller.LogoutController;
 import com.tenneshop.bookmark.web.controller.RegisterController;
 import com.tenneshop.bookmark.web.util.HttpServletRequestUtil;
 
@@ -53,6 +54,7 @@ public class Application {
         this.controllersByURL.put(HttpServletRequestUtil.REGISTER_FORM_REQUEST_PATH, new RegisterController());
         this.controllersByURL.put(HttpServletRequestUtil.REGISTER_NEW_REQUEST_PATH, new RegisterController());
         this.controllersByURL.put(HttpServletRequestUtil.HOME_REQUEST_PATH, new HomeController());
+        this.controllersByURL.put(HttpServletRequestUtil.LOGOUT_REQUEST_PATH, new LogoutController());
 
     }
 
