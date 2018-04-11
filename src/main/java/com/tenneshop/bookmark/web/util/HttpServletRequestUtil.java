@@ -9,7 +9,8 @@ public class HttpServletRequestUtil {
 	final public static String REGISTER_NEW_REQUEST_PATH = "/register_new";
 	final public static String HOME_REQUEST_PATH = "/";
 	final public static String LOGOUT_REQUEST_PATH = "/logout";
-
+	final public static String CHANGE_PASSWORD_REQUEST_PAHT = "/change_password";
+	final public static String CHANGE_PASSWORD_FORM_REQUEST_PAHT = "/change_password_form";
 
     public static String getRequestPath(final HttpServletRequest request) {
         

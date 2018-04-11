@@ -11,6 +11,7 @@ import org.thymeleaf.TemplateEngine;
 import org.thymeleaf.templatemode.TemplateMode;
 import org.thymeleaf.templateresolver.ServletContextTemplateResolver;
 
+import com.tenneshop.bookmark.web.controller.ChangePasswordController;
 import com.tenneshop.bookmark.web.controller.HomeController;
 import com.tenneshop.bookmark.web.controller.IController;
 import com.tenneshop.bookmark.web.controller.LoginController;
@@ -55,6 +56,8 @@ public class Application {
         this.controllersByURL.put(HttpServletRequestUtil.REGISTER_NEW_REQUEST_PATH, new RegisterController());
         this.controllersByURL.put(HttpServletRequestUtil.HOME_REQUEST_PATH, new HomeController());
         this.controllersByURL.put(HttpServletRequestUtil.LOGOUT_REQUEST_PATH, new LogoutController());
+        this.controllersByURL.put(HttpServletRequestUtil.CHANGE_PASSWORD_REQUEST_PAHT, new ChangePasswordController());
+        this.controllersByURL.put(HttpServletRequestUtil.CHANGE_PASSWORD_FORM_REQUEST_PAHT, new ChangePasswordController());
 
     }
 
@@ -71,20 +74,4 @@ public class Application {
         return this.templateEngine;
     }
 
-    
-//    private static String getRequestPath(final HttpServletRequest request) {
-//        
-//        String requestURI = request.getRequestURI();
-//        final String contextPath = request.getContextPath();
-//        
-//        final int fragmentIndex = requestURI.indexOf(';'); 
-//        if (fragmentIndex != -1) {
-//            requestURI = requestURI.substring(0, fragmentIndex);
-//        }
-//        
-//        if (requestURI.startsWith(contextPath)) {
-//            return requestURI.substring(contextPath.length());
-//        }
-//        return requestURI;
-//    }
 }
