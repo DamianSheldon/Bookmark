@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="base :: common_header(~{::title},~{})">
+
+<title>Home</title>
+</head>
+
+<body>
+	
+	<header th:replace="~{base :: header}"></header>
+	
+	<h1>Home</h1>
+	
+	<p th:text="|Logged in as ${loginUser}.|">Logged in as guest.</p>
+	
+	<!-- get the bookmarks this user has saved -->
+	<form action="/delete_bms" method="POST" th:action="@{/delete_bms}">
+		
+		<table>
+			<thead></thead>
+			<tbody>
+				
+				<tr>
+					<td>Bookmark</td>
+					<td>Delete BM?</td>
+				</tr>
+				
+				<tr th:each="url : ${urls}">
+					<td><a href="#" th:href="url" th:text="url">#</a></td>
+					<td><input type="checkbox" name="del_me[]" /></td>
+				</tr>
+				
+				<tr th:if="${urls.size} &lt; 1">
+					<td>No bookmark on record.</td>
+				</tr>
+				
+			</tbody>
+			<tfoot><tfoot>
+		
+		</table>
+	
+	</form>
+	
+	<!-- give menu of options -->
+	
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head th:replace="base :: common_header(~{::title},~{})">
+
+		<title>Register Form</title>
+	</head>
+	
+<body>
+
+	<div class="content">
+
+		<h1>User Register</h1>
+
+		<form action="/register_new" method="POST" th:action="@{/register_new}">
+
+			<table>
+				<thead></thead>
+				<tbody>
+					<tr>
+						<td><label for="email">Email address:</label></td>
+						<td><input id="email" name="email" type="email" /></td>
+					</tr>
+
+					<tr>
+						<td><label for="user_name">Prefered username<br />(max
+								16 chars):
+						</label></td>
+						<td><input id="user_name" name="user_name" type="text" /></td>
+					</tr>
+
+					<tr>
+						<td><label for="password">Password<br />(between 6
+								and 16 chars):
+						</label></td>
+						<td><input id="password" name="password" type="password" /></td>
+					</tr>
+
+					<tr>
+						<td><label for="confirm_password">Confirm password:</label></td>
+						<td><input id="confirm_password" name="confirm_password"
+							type="password" /></td>
+					</tr>
+
+					<tr>
+						<td>&nbsp;</td>
+						<td><input type="submit" value="Register" /></td>
+					</tr>
+				</tbody>
+			</table>
+		</form>
+
+	</div>
+
+</body>
+</html>

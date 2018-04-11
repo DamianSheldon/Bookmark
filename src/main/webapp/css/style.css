@@ -1,0 +1,14 @@
+@charset "UTF-8";
+
+form {
+	background-color: #ccc;
+}
+
+.content {
+	width: 40em; /* 640px/16px */
+	margin: 0 auto;
+}
+
+#loginButton {
+	margin-left: 70px;
+}

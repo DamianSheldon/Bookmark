@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head th:replace="base :: common_header(~{::title},~{})">
+
+		<title>Login</title>
+	</head>
+<body>
+
+	<div class="content">
+		<header>
+			<h1>Bookmark</h1>
+			<hr>
+		</header>
+
+		<ul>
+			<li>Store your bookmarks online with us!</li>
+			<li>See what other user use!</li>
+			<li>Share your favorite links with others!</li>
+		</ul>
+
+		<a href="/register_form" th:href="@{/register_form}">Not a member?</a>
+		<form action="/login" method="POST" th:action="@{/login}">
+			<p>Member log in here:</p>
+			<p>
+				<label for="user_name">Username:</label> <input id="user_name"
+					type="text" placeholder="Please input user name" name="user_name" />
+			</p>
+			<p>
+				<label for="user_password">Password:</label> <input
+					id="user_password" type="password" name="user_password" />
+			</p>
+			<p>
+				<input id="loginButton" type="submit" value="Login" />
+			</p>
+			<p>
+				<a href="#">Forgot your password?</a>
+			</p>
+
+		</form>
+	</div>
+
+</body>
+</html>

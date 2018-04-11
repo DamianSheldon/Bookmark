@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="base :: common_header(~{::title},~{})">
+
+<title>Successfully Register</title>
+</head>
+
+<body>
+	
+	<header th:replace="~{base :: header}"></header>
+	
+	<h1>Problem:</h1>
+	
+	<p>You could not be logged in.You must be logged in to view this page.</p>
+	
+	<a href="/login" th:href="@{/login}">Login</a>
+	
+</body>
+</html>
