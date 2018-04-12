@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="base :: common_header(~{::title},~{})">
+
+<title>Change Password</title>
+</head>
+
+<body>
+	
+	<header th:replace="~{base :: header}"></header>
+	
+	<h1>Change password</h1>
+	
+	<form action="/forgot_password" method="POST" th:action="@{/forgot_password}">
+		
+		<table>
+			<tbody>
+				<tr>
+					<td>
+						Enter your username:
+					</td>
+					<td>
+						<input type="text" name="user_name" />
+					</td>
+				</tr>
+				
+				<tr>
+					<td>
+						&nbsp;
+					</td>
+					<td>
+						<input type="submit" value="Forgot password" />
+					</td>
+				</tr>
+			</tbody>
+		</table>
+		
+	</form>
+	
+	<footer th:replace="~{home :: footer}"></footer>
+	
+</body>
+</html>
