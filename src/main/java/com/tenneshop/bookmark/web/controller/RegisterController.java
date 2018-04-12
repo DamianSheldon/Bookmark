@@ -1,7 +1,5 @@
 package com.tenneshop.bookmark.web.controller;
 
-import java.util.Map;
-
 import javax.servlet.ServletContext;
 import javax.servlet.UnavailableException;
 import javax.servlet.http.HttpServletRequest;
@@ -63,21 +61,10 @@ public class RegisterController implements IController {
 	}
 	
 	private boolean isValidForm(final HttpServletRequest request) {
-		// check forms filled in
-		Map<String, String[]> postedFormData = request.getParameterMap();
-		for (Map.Entry<String, String[]> entry : postedFormData.entrySet()) {
-			String[] values = entry.getValue();
-			
+		// check form filled in
+		if (!HttpServletRequestUtil.isFormFilledIn(request)) {
 			invalidMessage = "You have not filled the form out correctly. please go back and try again.";
-			
-			if (values.length < 1) {
-				return false;
-			}
-			
-			String value = values[0];
-			if (value == null || value.length() < 2) {
-				return false;
-			}
+			return false;
 		}
 		
 		// email address not valid

@@ -45,7 +45,7 @@ public class Application {
         
         // Cache is set to true by default. Set to false if you want templates to
         // be automatically updated when modified.
-        templateResolver.setCacheable(true);
+//        templateResolver.setCacheable(true);
 
         this.templateEngine = new TemplateEngine();
         this.templateEngine.setTemplateResolver(templateResolver);

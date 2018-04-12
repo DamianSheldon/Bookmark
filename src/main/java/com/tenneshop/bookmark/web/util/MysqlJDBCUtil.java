@@ -189,6 +189,54 @@ public class MysqlJDBCUtil {
 		return false;
 	}
 	
+	public boolean changePassword(String username, String newPassword, String oldPassword)
+	{
+		if (!login(username, oldPassword)) {
+			return false;
+		}
+		
+		PreparedStatement stmt = null;
+		
+		Connection c = getMysqlDatabaseConnection();
+		if (c != null) {
+			String sql = "update user set passwd = ? where username = ?;";
+			try {
+				stmt = c.prepareStatement(sql);
+				stmt.setString(1, newPassword);
+				stmt.setString(2, username);
+				
+				int rowAffected = stmt.executeUpdate();
+				if (rowAffected != 1) {
+					return false;
+				}
+				
+				return true;
+			}
+			catch (SQLException ex){
+			    // handle any errors
+			    System.out.println("SQLException: " + ex.getMessage());
+			    System.out.println("SQLState: " + ex.getSQLState());
+			    System.out.println("VendorError: " + ex.getErrorCode());
+			}
+			finally {
+			    // it is a good idea to release
+			    // resources in a finally{} block
+			    // in reverse-order of their creation
+			    // if they are no-longer needed
+
+			    if (stmt != null) {
+			        try {
+			            stmt.close();
+			        } catch (SQLException sqlEx) { } // ignore
+
+			        stmt = null;
+			    }
+			}
+		}
+		
+		return false;
+	}
+	
 	private Connection getMysqlDatabaseConnection()
 	{
 		if (conn != null) {

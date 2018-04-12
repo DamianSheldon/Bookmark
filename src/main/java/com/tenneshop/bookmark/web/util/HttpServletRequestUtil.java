@@ -1,5 +1,7 @@
 package com.tenneshop.bookmark.web.util;
 
+import java.util.Map;
+
 import javax.servlet.http.HttpServletRequest;
 
 public class HttpServletRequestUtil {
@@ -26,6 +28,24 @@ public class HttpServletRequestUtil {
             return requestURI.substring(contextPath.length());
         }
         return requestURI;
+    }
+    
+    public static boolean isFormFilledIn(final HttpServletRequest request) {
+		Map<String, String[]> postedFormData = request.getParameterMap();
+		for (Map.Entry<String, String[]> entry : postedFormData.entrySet()) {
+			String[] values = entry.getValue();
+			
+			if (values.length < 1) {
+				return false;
+			}
+			
+			String value = values[0];
+			if (value == null || value.length() < 2) {
+				return false;
+			}
+		}
+		
+		return true;
     }
     
 }
