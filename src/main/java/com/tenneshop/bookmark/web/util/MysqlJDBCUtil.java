@@ -195,6 +195,11 @@ public class MysqlJDBCUtil {
 			return false;
 		}
 		
+		return resetPassword(username, newPassword);
+	}
+	
+	public boolean resetPassword(String username, String password)
+	{
 		PreparedStatement stmt = null;
 		
 		Connection c = getMysqlDatabaseConnection();
@@ -202,7 +207,7 @@ public class MysqlJDBCUtil {
 			String sql = "update user set passwd = ? where username = ?;";
 			try {
 				stmt = c.prepareStatement(sql);
-				stmt.setString(1, newPassword);
+				stmt.setString(1, password);
 				stmt.setString(2, username);
 				
 				int rowAffected = stmt.executeUpdate();
@@ -235,6 +240,55 @@ public class MysqlJDBCUtil {
 		}
 		
 		return false;
+	}
+	
+	public String getEmailOfUser(String username)
+	{
+		String email = null;
+		
+		PreparedStatement stmt = null;
+		ResultSet rs = null;
+		//extract from the database all the URLs this user has stored
+		Connection c = getMysqlDatabaseConnection();
+		if (c != null) {
+			try {
+				stmt = c.prepareStatement("select email from user where username=?;");
+				stmt.setString(1, username);
+				
+				rs = stmt.executeQuery();
+				rs.next();
+				email = rs.getString("email");
+			}
+			catch (SQLException ex){
+			    // handle any errors
+			    System.out.println("SQLException: " + ex.getMessage());
+			    System.out.println("SQLState: " + ex.getSQLState());
+			    System.out.println("VendorError: " + ex.getErrorCode());
+			}
+			finally {
+			    // it is a good idea to release
+			    // resources in a finally{} block
+			    // in reverse-order of their creation
+			    // if they are no-longer needed
+
+			    if (rs != null) {
+			        try {
+			            rs.close();
+			        } catch (SQLException sqlEx) { } // ignore
+
+			        rs = null;
+			    }
+
+			    if (stmt != null) {
+			        try {
+			            stmt.close();
+			        } catch (SQLException sqlEx) { } // ignore
+
+			        stmt = null;
+			    }
+			}
+		}
+		return email;
 	}
 	
 	private Connection getMysqlDatabaseConnection()

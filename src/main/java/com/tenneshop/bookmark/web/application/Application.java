@@ -60,6 +60,7 @@ public class Application {
         this.controllersByURL.put(HttpServletRequestUtil.CHANGE_PASSWORD_REQUEST_PAHT, new ChangePasswordController());
         this.controllersByURL.put(HttpServletRequestUtil.CHANGE_PASSWORD_FORM_REQUEST_PAHT, new ChangePasswordController());
         this.controllersByURL.put(HttpServletRequestUtil.FORGOT_PASSWORD_FORM_REQUEST_PAHT, new ForgotController());
+        this.controllersByURL.put(HttpServletRequestUtil.FORGOT_PASSWORD_REQUEST_PAHT, new ForgotController());
 
     }
 

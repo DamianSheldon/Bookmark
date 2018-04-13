@@ -2,14 +2,14 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head th:replace="base :: common_header(~{::title},~{})">
 
-<title>Change Password</title>
+<title>Forgot Password</title>
 </head>
 
 <body>
 	
 	<header th:replace="~{base :: header}"></header>
 	
-	<h1>Change password</h1>
+	<h1>Forgot password</h1>
 	
 	<form action="/forgot_password" method="POST" th:action="@{/forgot_password}">
 		
