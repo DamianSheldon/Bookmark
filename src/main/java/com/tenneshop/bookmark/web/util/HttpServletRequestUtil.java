@@ -11,10 +11,10 @@ public class HttpServletRequestUtil {
 	final public static String REGISTER_NEW_REQUEST_PATH = "/register_new";
 	final public static String HOME_REQUEST_PATH = "/";
 	final public static String LOGOUT_REQUEST_PATH = "/logout";
-	final public static String CHANGE_PASSWORD_REQUEST_PAHT = "/change_password";
-	final public static String CHANGE_PASSWORD_FORM_REQUEST_PAHT = "/change_password_form";
-	final public static String FORGOT_PASSWORD_FORM_REQUEST_PAHT = "/forgot_password_form";
-	final public static String FORGOT_PASSWORD_REQUEST_PAHT = "/forgot_password";
+	final public static String CHANGE_PASSWORD_REQUEST_PATH = "/change_password";
+	final public static String CHANGE_PASSWORD_FORM_REQUEST_PATH = "/change_password_form";
+	final public static String FORGOT_PASSWORD_FORM_REQUEST_PATH = "/forgot_password_form";
+	final public static String FORGOT_PASSWORD_REQUEST_PATH = "/forgot_password";
 	final public static String ADD_BM_FORM_REQUEST_PATH = "/add_bm_form";
 	final public static String ADD_BM_REQUEST_PATH = "/add_bm";
 	

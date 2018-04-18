@@ -27,13 +27,13 @@ public class ChangePasswordController implements IController {
 		}
 
 		String requestPath = HttpServletRequestUtil.getRequestPath(request);
-		if (requestPath.equals(HttpServletRequestUtil.CHANGE_PASSWORD_FORM_REQUEST_PAHT)) {
+		if (requestPath.equals(HttpServletRequestUtil.CHANGE_PASSWORD_FORM_REQUEST_PATH)) {
 			
 			ctx.setVariable("loginUser", validUser);
 			
 			templateEngine.process("change_password_form", ctx, response.getWriter());	
 		}
-		else if (requestPath.equals(HttpServletRequestUtil.CHANGE_PASSWORD_REQUEST_PAHT)) {
+		else if (requestPath.equals(HttpServletRequestUtil.CHANGE_PASSWORD_REQUEST_PATH)) {
 			// Check form filled in
 			if (!HttpServletRequestUtil.isFormFilledIn(request)) {
 				response.sendError(HttpServletResponse.SC_BAD_REQUEST, "You have not filled out the form completely.Please try again.");

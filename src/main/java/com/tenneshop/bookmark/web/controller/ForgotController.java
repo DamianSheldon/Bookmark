@@ -21,7 +21,7 @@ public class ForgotController implements IController {
 		WebContext ctx = new WebContext(request, response, servletContext, request.getLocale());
 		
 		String requestPath = HttpServletRequestUtil.getRequestPath(request);
-		if (requestPath.equals(HttpServletRequestUtil.FORGOT_PASSWORD_REQUEST_PAHT)) {
+		if (requestPath.equals(HttpServletRequestUtil.FORGOT_PASSWORD_REQUEST_PATH)) {
 			String username = request.getParameter("user_name");
 			
 			// Reset password
@@ -44,7 +44,7 @@ public class ForgotController implements IController {
 				response.sendError(HttpServletResponse.SC_BAD_REQUEST, "Could not be reset password.");
 			}
 		}
-		else if (requestPath.equals(HttpServletRequestUtil.FORGOT_PASSWORD_FORM_REQUEST_PAHT)) {
+		else if (requestPath.equals(HttpServletRequestUtil.FORGOT_PASSWORD_FORM_REQUEST_PATH)) {
 			templateEngine.process("forgot_form", ctx, response.getWriter());
 		}
 		else {

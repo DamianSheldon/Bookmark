@@ -58,10 +58,10 @@ public class Application {
         this.controllersByURL.put(HttpServletRequestUtil.REGISTER_NEW_REQUEST_PATH, new RegisterController());
         this.controllersByURL.put(HttpServletRequestUtil.HOME_REQUEST_PATH, new HomeController());
         this.controllersByURL.put(HttpServletRequestUtil.LOGOUT_REQUEST_PATH, new LogoutController());
-        this.controllersByURL.put(HttpServletRequestUtil.CHANGE_PASSWORD_REQUEST_PAHT, new ChangePasswordController());
-        this.controllersByURL.put(HttpServletRequestUtil.CHANGE_PASSWORD_FORM_REQUEST_PAHT, new ChangePasswordController());
-        this.controllersByURL.put(HttpServletRequestUtil.FORGOT_PASSWORD_FORM_REQUEST_PAHT, new ForgotController());
-        this.controllersByURL.put(HttpServletRequestUtil.FORGOT_PASSWORD_REQUEST_PAHT, new ForgotController());
+        this.controllersByURL.put(HttpServletRequestUtil.CHANGE_PASSWORD_REQUEST_PATH, new ChangePasswordController());
+        this.controllersByURL.put(HttpServletRequestUtil.CHANGE_PASSWORD_FORM_REQUEST_PATH, new ChangePasswordController());
+        this.controllersByURL.put(HttpServletRequestUtil.FORGOT_PASSWORD_FORM_REQUEST_PATH, new ForgotController());
+        this.controllersByURL.put(HttpServletRequestUtil.FORGOT_PASSWORD_REQUEST_PATH, new ForgotController());
         this.controllersByURL.put(HttpServletRequestUtil.ADD_BM_FORM_REQUEST_PATH, new AddBMController());
         this.controllersByURL.put(HttpServletRequestUtil.ADD_BM_REQUEST_PATH, new AddBMController());
     }
