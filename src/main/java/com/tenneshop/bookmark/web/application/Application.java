@@ -11,6 +11,7 @@ import org.thymeleaf.TemplateEngine;
 import org.thymeleaf.templatemode.TemplateMode;
 import org.thymeleaf.templateresolver.ServletContextTemplateResolver;
 
+import com.tenneshop.bookmark.web.controller.AddBMController;
 import com.tenneshop.bookmark.web.controller.ChangePasswordController;
 import com.tenneshop.bookmark.web.controller.ForgotController;
 import com.tenneshop.bookmark.web.controller.HomeController;
@@ -61,7 +62,8 @@ public class Application {
         this.controllersByURL.put(HttpServletRequestUtil.CHANGE_PASSWORD_FORM_REQUEST_PAHT, new ChangePasswordController());
         this.controllersByURL.put(HttpServletRequestUtil.FORGOT_PASSWORD_FORM_REQUEST_PAHT, new ForgotController());
         this.controllersByURL.put(HttpServletRequestUtil.FORGOT_PASSWORD_REQUEST_PAHT, new ForgotController());
-
+        this.controllersByURL.put(HttpServletRequestUtil.ADD_BM_FORM_REQUEST_PATH, new AddBMController());
+        this.controllersByURL.put(HttpServletRequestUtil.ADD_BM_REQUEST_PATH, new AddBMController());
     }
 
     

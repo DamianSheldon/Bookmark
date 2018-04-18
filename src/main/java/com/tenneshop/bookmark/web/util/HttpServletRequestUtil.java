@@ -15,7 +15,9 @@ public class HttpServletRequestUtil {
 	final public static String CHANGE_PASSWORD_FORM_REQUEST_PAHT = "/change_password_form";
 	final public static String FORGOT_PASSWORD_FORM_REQUEST_PAHT = "/forgot_password_form";
 	final public static String FORGOT_PASSWORD_REQUEST_PAHT = "/forgot_password";
-
+	final public static String ADD_BM_FORM_REQUEST_PATH = "/add_bm_form";
+	final public static String ADD_BM_REQUEST_PATH = "/add_bm";
+	
     public static String getRequestPath(final HttpServletRequest request) {
         
         String requestURI = request.getRequestURI();

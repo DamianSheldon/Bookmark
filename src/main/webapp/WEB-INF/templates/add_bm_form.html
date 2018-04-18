@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="base :: common_header(~{::title},~{})">
+
+<title>Adding Bookmark</title>
+</head>
+
+<body>
+	
+	<header th:replace="~{base :: header}"></header>
+	
+	<h1>Add Bookmarks</h1>
+	
+	<p th:text="|Logged in as ${loginUser}.|">Logged in as guest.</p>
+	
+		<form action="/add_bm" method="POST" th:action="@{/add_bm}">
+		
+		<table>
+			<tbody>
+				<tr>
+					<td>
+						New BM:
+					</td>
+					<td>
+						<input type="text" name="new_bm" />
+					</td>
+				</tr>
+				
+				<tr>
+					<td>
+						&nbsp;
+					</td>
+					<td>
+						<input type="submit" value="Add Bookmark" />
+					</td>
+				</tr>
+			</tbody>
+		</table>
+		
+	</form>
+	
+	<footer th:replace="~{home :: footer}"></footer>
+	
+</body>
+</html>
