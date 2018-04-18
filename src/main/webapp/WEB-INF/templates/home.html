@@ -26,7 +26,7 @@
 				</tr>
 				
 				<tr th:each="url : ${urls}">
-					<td><a href="#" th:href="url" th:text="url">#</a></td>
+					<td><a href="#" th:href="@{${url}}" th:text="${url}">#</a></td>
 					<td><input type="checkbox" name="del_me[]" /></td>
 				</tr>
 				
@@ -45,7 +45,7 @@
 	<footer th:fragment="footer">
 		
 		<a href="/" th:href="@{/}">Home</a>
-		<a href="/add_bm" th:href="@{/add_bm}">Add BM</a>
+		<a href="/add_bm_form" th:href="@{/add_bm_form}">Add BM</a>
 		<a href="/delete_bms" th:href="@{/delete_bms}">Delete BM</a>
 		<a href="/change_password_form" th:href="@{/change_password_form}">Change Password</a>
 		<a href="/recomend" th:href="@{/recomend}">Recommend URLs to me</a>

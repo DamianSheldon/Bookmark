@@ -20,7 +20,7 @@
 			</tr>
 
 			<tr th:each="url : ${urls}">
-				<td><a href="#" th:href="url" th:text="url">#</a></td>
+				<td><a href="#" th:href="@{${url}}" th:text="${url}">#</a></td>
 			</tr>
 
 			<tr th:if="${urls.size} &lt; 1">
@@ -28,8 +28,7 @@
 			</tr>
 
 		</tbody>
-		<tfoot>
-		<tfoot>
+		<tfoot></tfoot>
 	</table>
 
 

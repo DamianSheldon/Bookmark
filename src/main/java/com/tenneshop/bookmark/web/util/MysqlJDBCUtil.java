@@ -291,6 +291,54 @@ public class MysqlJDBCUtil {
 		return email;
 	}
 	
+	public boolean addBM(String username, String bookmarkUrlString) {
+		// Add new bookmark to the database
+		PreparedStatement stmt = null;
+		ResultSet rs = null;
+		
+		Connection c = getMysqlDatabaseConnection();
+		if (c != null) {
+			try {
+				stmt = c.prepareStatement("insert into bookmark value (?, ?);");
+				stmt.setString(1, username);
+				stmt.setString(2, bookmarkUrlString);
+				
+				stmt.executeUpdate();
+				
+				return true;	
+			}
+			catch (SQLException ex){
+			    // handle any errors
+			    System.out.println("SQLException: " + ex.getMessage());
+			    System.out.println("SQLState: " + ex.getSQLState());
+			    System.out.println("VendorError: " + ex.getErrorCode());
+			}
+			finally {
+			    // it is a good idea to release
+			    // resources in a finally{} block
+			    // in reverse-order of their creation
+			    // if they are no-longer needed
+
+			    if (rs != null) {
+			        try {
+			            rs.close();
+			        } catch (SQLException sqlEx) { } // ignore
+
+			        rs = null;
+			    }
+
+			    if (stmt != null) {
+			        try {
+			            stmt.close();
+			        } catch (SQLException sqlEx) { } // ignore
+
+			        stmt = null;
+			    }
+			}
+		}
+		return false;
+	}
+	
 	private Connection getMysqlDatabaseConnection()
 	{
 		if (conn != null) {
