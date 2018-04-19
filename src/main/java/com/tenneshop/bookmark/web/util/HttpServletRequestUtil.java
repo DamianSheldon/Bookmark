@@ -18,6 +18,7 @@ public class HttpServletRequestUtil {
 	public static final String ADD_BM_FORM_REQUEST_PATH = "/add_bm_form";
 	public static final String ADD_BM_REQUEST_PATH = "/add_bm";
 	public static final String DELETE_BMS_REQUEST_PATH = "/delete_bms";
+	public static final String RECOMMEND_BMS_REQUEST_PATH = "/recommend_bms";
 
 	public static String getRequestPath(final HttpServletRequest request) {
 

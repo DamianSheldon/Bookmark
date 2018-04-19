@@ -19,6 +19,7 @@ import com.tenneshop.bookmark.web.controller.HomeController;
 import com.tenneshop.bookmark.web.controller.IController;
 import com.tenneshop.bookmark.web.controller.LoginController;
 import com.tenneshop.bookmark.web.controller.LogoutController;
+import com.tenneshop.bookmark.web.controller.RecommendController;
 import com.tenneshop.bookmark.web.controller.RegisterController;
 import com.tenneshop.bookmark.web.util.HttpServletRequestUtil;
 
@@ -66,6 +67,8 @@ public class Application {
         this.controllersByURL.put(HttpServletRequestUtil.ADD_BM_FORM_REQUEST_PATH, new AddBMController());
         this.controllersByURL.put(HttpServletRequestUtil.ADD_BM_REQUEST_PATH, new AddBMController());
         this.controllersByURL.put(HttpServletRequestUtil.DELETE_BMS_REQUEST_PATH, new DeleteBMsController());
+        this.controllersByURL.put(HttpServletRequestUtil.RECOMMEND_BMS_REQUEST_PATH, new RecommendController());
+
     }
 
     

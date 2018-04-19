@@ -388,6 +388,58 @@ public class MysqlJDBCUtil {
 		return true;
 	}
 	
+	public List<String> getRecommendUrlsOfUser(String username) {
+		List<String> urls = new ArrayList<String>();
+		
+		PreparedStatement stmt = null;
+		ResultSet rs = null;
+		//extract from the database all the URLs this user has stored
+		Connection c = getMysqlDatabaseConnection();
+		if (c != null) {
+			try {
+				stmt = c.prepareStatement("select bm_URL from bookmark where username in (select distinct(b2.username) from bookmark b1, bookmark b2 where b1.username= ? and b1.username != b2.username and b1.bm_URL = b2.bm_URL) and bm_URL not in (select bm_URL from bookmark where username=?) group by bm_URL;");
+				stmt.setString(1, username);
+				stmt.setString(2, username);
+
+				rs = stmt.executeQuery();
+				while (rs.next()) {
+					String url = rs.getString("bm_URL");
+					urls.add(url);
+				}
+			}
+			catch (SQLException ex){
+			    // handle any errors
+			    System.out.println("SQLException: " + ex.getMessage());
+			    System.out.println("SQLState: " + ex.getSQLState());
+			    System.out.println("VendorError: " + ex.getErrorCode());
+			}
+			finally {
+			    // it is a good idea to release
+			    // resources in a finally{} block
+			    // in reverse-order of their creation
+			    // if they are no-longer needed
+
+			    if (rs != null) {
+			        try {
+			            rs.close();
+			        } catch (SQLException sqlEx) { } // ignore
+
+			        rs = null;
+			    }
+
+			    if (stmt != null) {
+			        try {
+			            stmt.close();
+			        } catch (SQLException sqlEx) { } // ignore
+
+			        stmt = null;
+			    }
+			}
+		}
+		
+		return urls;
+	}
+	
 	private Connection getMysqlDatabaseConnection()
 	{
 		if (conn != null) {

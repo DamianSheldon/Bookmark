@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="base :: common_header(~{::title},~{})">
+
+<title>Recommend Bookmarks</title>
+</head>
+
+<body>
+	
+	<header th:replace="~{base :: header}"></header>
+	
+	<h1>Recommending Bookmarks</h1>
+	
+	<p th:text="|Logged in as ${loginUser}.|">Logged in as guest.</p>
+	
+	<table>
+			<thead></thead>
+			<tbody>
+				
+				<tr>
+					<td>Recommendations</td>
+				</tr>
+				
+				<tr th:each="url : ${urls}">
+					<td><a href="#" th:href="@{${url}}" th:text="${url}">#</a></td>
+				</tr>
+				
+				<tr th:if="${urls.size} &lt; 1">
+					<td>No recommendations for you today.</td>
+				</tr>
+				
+			</tbody>
+			<tfoot></tfoot>
+		
+		</table>
+	
+	<footer th:replace="~{home :: footer}"></footer>
+	
+</body>
+</html>

@@ -12,7 +12,7 @@ import org.thymeleaf.context.WebContext;
 
 import com.tenneshop.bookmark.web.util.MysqlJDBCUtil;
 
-public class DeleteBMsController implements IController {
+public class RecommendController implements IController {
 
 	@Override
 	public void process(HttpServletRequest request, HttpServletResponse response, ServletContext servletContext,
@@ -27,22 +27,11 @@ public class DeleteBMsController implements IController {
 		}
 
 		ctx.setVariable("loginUser", validUser);
+
+		List<String> urls = MysqlJDBCUtil.getInstance().getRecommendUrlsOfUser(validUser);
+		ctx.setVariable("urls", urls);
 		
-		String [] deletedUrls = request.getParameterValues("del_me");
-		ctx.setVariable("deleted_urls", deletedUrls);
-		
-//		HttpServletRequestUtil.logFormContents(request);
-		
-		// Delete url from database
-		if (MysqlJDBCUtil.getInstance().deleteBMs(validUser, deletedUrls)) {
-			List<String> urls = MysqlJDBCUtil.getInstance().getUserUrls(validUser);
-			ctx.setVariable("urls", urls);
-			
-			templateEngine.process("delete_bms", ctx, response.getWriter());
-		}
-		else {
-			response.sendError(HttpServletResponse.SC_BAD_REQUEST, "Could not delete bookmarks.");
-		}
+		templateEngine.process("recommend", ctx, response.getWriter());
 	}
 
 }
