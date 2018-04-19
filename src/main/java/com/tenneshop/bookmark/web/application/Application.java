@@ -13,6 +13,7 @@ import org.thymeleaf.templateresolver.ServletContextTemplateResolver;
 
 import com.tenneshop.bookmark.web.controller.AddBMController;
 import com.tenneshop.bookmark.web.controller.ChangePasswordController;
+import com.tenneshop.bookmark.web.controller.DeleteBMsController;
 import com.tenneshop.bookmark.web.controller.ForgotController;
 import com.tenneshop.bookmark.web.controller.HomeController;
 import com.tenneshop.bookmark.web.controller.IController;
@@ -64,11 +65,11 @@ public class Application {
         this.controllersByURL.put(HttpServletRequestUtil.FORGOT_PASSWORD_REQUEST_PATH, new ForgotController());
         this.controllersByURL.put(HttpServletRequestUtil.ADD_BM_FORM_REQUEST_PATH, new AddBMController());
         this.controllersByURL.put(HttpServletRequestUtil.ADD_BM_REQUEST_PATH, new AddBMController());
+        this.controllersByURL.put(HttpServletRequestUtil.DELETE_BMS_REQUEST_PATH, new DeleteBMsController());
     }
 
     
     public IController resolveControllerForRequest(final HttpServletRequest request) {
-//        final String path = getRequestPath(request);
         final String path = HttpServletRequestUtil.getRequestPath(request);
 
         return this.controllersByURL.get(path);
