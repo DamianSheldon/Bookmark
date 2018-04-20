@@ -8,10 +8,13 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Properties;
 
 public class MysqlJDBCUtil {
-	final private static MysqlJDBCUtil INSTANCE = new MysqlJDBCUtil();
-	final private static String JDBCURLSTRING = "jdbc:mysql://localhost/bookmarks?user=dongmeiliang&password=dongmeiliang";
+	private static final MysqlJDBCUtil INSTANCE = new MysqlJDBCUtil();
+	private static final String JDBCURLSTRING = "jdbc:mysql://localhost/bookmarks?user=dongmeiliang&password=dongmeiliang";
+
+	private final Properties p = new Properties();
 	
 	private Connection conn;
 	
@@ -24,6 +27,9 @@ public class MysqlJDBCUtil {
 	{
 		try {
 			Class.forName("com.mysql.jdbc.Driver").newInstance();
+			
+			p.setProperty("autoReconnect", "true");
+			
 		} catch (InstantiationException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -447,7 +453,10 @@ public class MysqlJDBCUtil {
 		}
 		
 		try {
-			conn = DriverManager.getConnection(JDBCURLSTRING);
+			// As a key/value pair in the java.util.Properties instance passed to DriverManager.getConnection() or Driver.connect()
+			// using the Connector/J connection property 'autoReconnect=true' to avoid this problem.
+			
+			conn = DriverManager.getConnection(JDBCURLSTRING, p);
 			return conn;
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
